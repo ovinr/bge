@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <SDL2/SDL.h>
 
 SDL_Window *win;
@@ -9,10 +8,9 @@ SDL_Renderer *ren;
 
 
 
-
-int initRen()
+int initRen(int w, int h)
 	{
-		win = SDL_CreateWindow("decay", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+		win = SDL_CreateWindow("decay", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
 		if(!win)
 			{
 				perror("could not create window");
@@ -29,7 +27,6 @@ int initRen()
 
 void render()
 	{
-		SDL_SetRenderDrawColor(ren, 96, 128, 255, 255);
 		SDL_RenderClear(ren);
 		SDL_RenderPresent(ren);
 	}
